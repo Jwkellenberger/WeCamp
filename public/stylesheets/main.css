@@ -1,0 +1,23 @@
+body{
+    background-color:#ddd;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.cstm-img-rounded{
+    border-radius: 4px;
+}
+
+.inline-elem{
+    display: inline;
+}
+
+.margin-bot{
+    margin-bottom: 15px;
+}

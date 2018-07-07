@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var methodOverride = require('method-override'),
     LocalStrategy  = require('passport-local'),
     flash          = require('connect-flash'),
@@ -36,7 +38,6 @@ var campgroundRoutes = require('./routes/campgrounds'),
 // UPDATE   | /dogs/:id      |   PUT     | Update specific dog &Redirect
 // DESTROY  | /dogs/:id      |   DELETE  | Delete specific dog &Redirect
 // ////////////////////////////////////////////////////////////////////////////
-
 
 
 //initial server configuration

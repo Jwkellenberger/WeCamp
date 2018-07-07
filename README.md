@@ -5,11 +5,16 @@ Ejs is a simple templating language that lets you generate HTML markup with plai
 
 ### The landing page aesthetic:
 
-[Imgur](https://i.imgur.com/Wteddeu.png)
+[InitialLanding](https://i.imgur.com/Wteddeu.png)
 
 However, there is a slow animation fade, as you let the seconds role by
 
 ### The landing page mid-fade transition:
 
-[Imgur](https://i.imgur.com/lcRaxY8.png)
+[fadeLanding](https://i.imgur.com/lcRaxY8.png)
+
+
+### The index page of the site:
+
+[initialIndex](https://i.imgur.com/EeCw56i.png)
 

@@ -21,3 +21,40 @@ body{
 .margin-bot{
     margin-bottom: 15px;
 }
+
+.formDiv{
+    width: 80%;
+    margin: 25px auto;
+}
+
+.alignTextCenter{
+    text-align: center;
+}
+
+.lessJumboTron{
+    background-color: #eee;
+    margin: 25px auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
+
+@media (min-width: 990px) {
+
+    .lessJumboTron{
+    width: 640px;
+    }
+    
+    .formDiv{
+    width: 55%;
+    }
+
+}  
+
+@media (min-width: 500px) {
+    
+    .formDiv{
+    width: 45%;
+    }
+
+}  

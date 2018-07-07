@@ -18,3 +18,29 @@ However, there is a slow animation fade, as you let the seconds role by
 
 ![initialIndex](https://i.imgur.com/EeCw56i.png)
 
+## Dependencies in elaboration:
+
+#### For framework:
+
+ * ejs: ^2.6.1
+ * express: ^4.16.3
+ * express-session: ^1.15.6
+
+#### For RESTful routing:
+
+ * method-override: ^2.3.10
+ * body-parser: ^1.18.3
+
+#### For feedback to user:
+
+ * connect-flash: "^0.1.1
+
+#### For data persistance:
+
+ * mongoose: ^5.1.4
+
+#### For Authentication and Authorization:
+
+ * passport: ^0.4.0
+ * passport-local: ^1.0.0
+ * passport-local-mongoose: ^5.0.0

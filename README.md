@@ -18,6 +18,12 @@ However, there is a slow animation fade, as you let the seconds role by
 
 ![initialIndex](https://i.imgur.com/EeCw56i.png)
 
+
+### Feedback on successful log in:
+
+![loginIndex](https://i.imgur.com/03Ugvih.jpg)
+
+
 ## Dependencies in elaboration:
 
 #### For framework:

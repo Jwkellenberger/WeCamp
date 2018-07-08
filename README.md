@@ -27,6 +27,7 @@ However, there is a slow animation fade, as you let the seconds role by
 ### Campgrounds/show for a post:
 
 ![Imgur](https://i.imgur.com/04YWuIj.jpg)
+(scrolled out to show comments at the same time)
 
 #### The page shows:
  * the data that composes a "campground" post.

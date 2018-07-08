@@ -48,6 +48,23 @@ body{
     height: 400px;
 }
 
+.userAvatar{
+    width: 150px;
+    height:150px;
+    margin: 10px 0 20px 0;
+    border-radius: 10px;
+}
+
+.userImage{
+    width: 400px;
+    height:400px;
+    border-radius: 10px;
+}
+
+.userParagraph{
+    margin: 35px 10px 10px 10px;
+}
+
 
 @media (min-width: 990px) {
 

@@ -16,7 +16,7 @@
     <div class="thumbnail">
         <img class="img-responsive cstm-img-rounded" src="<%= campground.image%>">
         <div class="caption">
-            <h4 class="pull-right"><em>Submitted By: <%= campground.author.username%></em></h4>
+            <h4 class="pull-right"><em>Submitted By: <a href="/users/<%= campground.author.id%>"><%= campground.author.username%></a></em></h4>
             <!--<h4 class="pull-right">$9.99/night</h4>-->
             <h4><a><%= campground.name%></a></h4>
             <p><%= campground.description%></p>

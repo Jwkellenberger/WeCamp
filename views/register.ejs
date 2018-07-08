@@ -9,11 +9,33 @@
                     <form action="/register" method="POST">
                         
                         <div class="form-group">
-                            <input class="form-control" type="text" name="username" placeholder="username">
-                        </div>    
+                            <label for="username" class="labelAlign">Username:</label>
+                            <input class="form-control" type="text" name="username" placeholder="username" required>
+                        </div>
                         <div class="form-group">
-                            <input class="form-control" type="password" name="password" placeholder="password">
-                        </div>    
+                            <label for="password" class="labelAlign">Password:</label>
+                            <input class="form-control" type="password" name="password" placeholder="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="labelAlign">Email:</label>
+                            <input class="form-control" type="email" name="email" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="avatar" class="labelAlign">Avatar Url:</label>
+                            <input class="form-control" type="text" name="avatar" placeholder="avatar">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName" class="labelAlign">First Name:</label>
+                            <input class="form-control" type="text" name="firstName" placeholder="first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="labelAlign">Last Name:</label>
+                            <input class="form-control" type="text" name="lastName" placeholder="last name">
+                        </div>
+                        <!--<div class="form-group">-->
+                        <!--    <label for="isAdmin" class="labelAlign">isAdmin:</label>-->
+                        <!--    <input class="form-control" type="radio" name="isAdmin" value=true>-->
+                        <!--</div>-->
                         <div class="form-group">
                             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
                         </div>
@@ -23,8 +45,6 @@
             </div>
         </div>
 </header>
-
-
 
 <!--<h1>Sign Up!</h1>-->
 

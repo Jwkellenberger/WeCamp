@@ -13,6 +13,13 @@ Ejs is a simple templating language that lets you generate HTML markup with plai
 
 ### The index site:
 
+![loginIndex](https://i.imgur.com/03Ugvih.jpg)
+
+#### The page shows:
+ * a title bar that indicates a successful log in.
+ * users have to be logged in to create a database post.
+ * the index pulls from a mongodb database to fill campgrounds.
+ * the logged-in state converts Login/Register buttons to a log out option.
 
 ### Campgrounds/show for a post:
 

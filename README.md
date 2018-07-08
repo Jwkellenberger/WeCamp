@@ -37,6 +37,16 @@ However, there is a slow animation fade, as you let the seconds role by
  * the google maps location that was input with the creation of the post (geocoded).
 
 
+### Profile pages for users that post campgrounds:
+
+![Imgur](https://i.imgur.com/7degJjc.jpg)
+
+#### The page shows:
+ * user data that is pulled from mongodb.
+ * a list to the right that contains all campground posts of the user.
+ * (will be updated to allow for user data editing [including pw change]).
+
+
 ## Dependencies in elaboration:
 
 #### For framework:

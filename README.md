@@ -24,6 +24,18 @@ However, there is a slow animation fade, as you let the seconds role by
 ![loginIndex](https://i.imgur.com/03Ugvih.jpg)
 
 
+### Campgrounds/show for a post:
+
+![Imgur](https://i.imgur.com/04YWuIj.jpg)
+
+#### The page shows:
+ * the data that composes a "campground" post.
+ * comments that are attached to the campground post.
+ * the "authorization" for editing and deleting "own" posts and comments.
+ * the link to the personal account of the user that posted the campground post.
+ * the google maps location that was input with the creation of the post (geocoded).
+
+
 ## Dependencies in elaboration:
 
 #### For framework:

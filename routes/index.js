@@ -1,4 +1,5 @@
-var User          = require('../models/user'),
+var Campground    = require('../models/campground'),
+    User          = require('../models/user'),
     passport      = require('passport'),
     express       = require('express'),
     router        = express.Router();
@@ -20,7 +21,13 @@ router.get('/register', function(req, res){
 //Handle Sign Up Logic
 router.post('/register', function(req, res){
     //Auth Stuff
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({username: req.body.username,
+                            email: req.body.email,
+                            avatar: req.body.avatar,
+                            // isAdmin: req.body.isAdmin,
+                            firstName: req.body.firstName,
+                            lastName: req.body.lastName
+                            });
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash('error', err.message); //present passport error
@@ -62,5 +69,27 @@ router.get('/logout', function(req, res){
     req.flash('success', 'Logged you out! Cheerio!');
     res.redirect('/campgrounds');
 })
+
+
+//Handle user page
+router.get('/users/:id', function(req,res){
+    User.findById(req.params.id, function(err, foundUser){
+        if(err){
+            console.log(err);
+            req.flash('error', 'Unfortunately, that user account is not active.');
+            res.redirect('/campgrounds');
+        } else{
+            Campground.find().where('author.id').equals(foundUser._id).exec(function(err, campgrounds){
+                if(err){
+                    console.log(err);
+                    req.flash('error', 'Unfortunately, the campground database is fumbling.');
+                    res.redirect('/campgrounds');
+                } else{
+                    res.render("users/show", {user: foundUser, campgrounds: campgrounds});
+            }});
+        }
+    });
+})
+
 
 module.exports = router;

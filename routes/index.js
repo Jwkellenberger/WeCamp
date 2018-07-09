@@ -85,7 +85,7 @@ router.get('/users/:id', function(req,res){
                     req.flash('error', 'Unfortunately, the campground database is fumbling.');
                     res.redirect('/campgrounds');
                 } else{
-                    res.render("users/show", {user: foundUser, campgrounds: campgrounds});
+                    res.render("users/show", {user: foundUser, campgrounds: campgrounds, page: 'user'});
             }});
         }
     });

@@ -4,11 +4,11 @@ var passportLocalMongoose = require('passport-local-mongoose');
 //Set up user Model
 var userSchema = new mongoose.Schema({
     username: {type: String, unique: true, required: true},
-    password: {tyoe: String, required: true},
+    password: {type: String, required: true},
     avatar: String,
     firstName: String,
     lastName: String,
-    email: {type: String, unique: true, required: true},
+    email: {type: String, required: true},//unique: true, required: true},
     isAdmin: {type: Boolean, default: false}
 });
 

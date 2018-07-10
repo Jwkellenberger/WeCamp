@@ -4,15 +4,18 @@
 <header class="lessJumboTron">
         <div >
             <div class="row">
-                <h1 class="alignTextCenter">Login!</h1>
                 <div class="formDiv">
+                    <form>
+                        <h3 class="labelAlign ">Login:</h3>
+                        <hr>
+                    </form>
                     <form action="/login" method="POST">
                         
                         <div class="form-group">
                             <label for="username" class="labelAlign">Username:</label>
                             <input class="form-control" type="text" name="username" placeholder="username">
                         </div>    
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <label for="password" class="labelAlign">Password:</label>
                             <input class="form-control" type="password" name="password" placeholder="password">
                         </div>    
@@ -20,35 +23,13 @@
                             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
                         </div>
                     </form>
+
                     <a href='/campgrounds'>Go Back</a> <a class="leftSpacing" href='/user/forgot'> Forgot password?</a>
+
                 </div>
             </div>
         </div>
 </header>
 
-
-<!--<div class="row">-->
-<!--    <h1 class="alignTextCenter">Login!</h1>-->
-<!--    <div class="formDiv">-->
-<!--        <form action="/login" method="POST">-->
-            
-<!--            <div class="form-group">-->
-<!--                <input class="form-control" type="text" name="username" placeholder="username">-->
-<!--            </div>    -->
-<!--            <div class="form-group">-->
-<!--                <input class="form-control" type="password" name="password" placeholder="password">-->
-<!--            </div>    -->
-<!--            <div class="form-group">-->
-<!--                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">-->
-<!--            </div>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<form action="/login" method="POST">-->
-<!--    <input type="text" name="username" placeholder="username">-->
-<!--    <input type="password" name="password" placeholder="password">-->
-<!--    <input type="submit">-->
-<!--</form>-->
 
 <% include ./partials/footer %>

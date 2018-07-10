@@ -3,10 +3,13 @@
 <div class='container'>
     <header class="lessJumboTron">
         <div class="row">
-            <h1 style="text-align: center">Forgot your password?</h1>
             <div class="formDiv">
+                <form>
+                    <h4 class="labelAlign ">Lost password?</h4>
+                    <hr>
+                </form>
                 <form action="/user/forgot" method="POST">
-                    <div class="form-group">
+                    <div class="form-group mb-4">
                         <label for="email"  class="labelAlign">Email:</label>
                         <input class="form-control" type="email" name="email" placeholder="User email" autofocus required>
                     </div>

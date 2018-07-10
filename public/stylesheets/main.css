@@ -1,13 +1,49 @@
 body{
-    background-color:#ddd;
+    /*background-color:#ddd;*/
+    background-color:#212121;
 }
 
-.thumbnail img {
-    width: 100%;
+#navBar{
+    background-color:#303F9F;
+    color: #eee;
 }
 
-.thumbnail{
-    padding: 0;
+.card{
+    background-color:#d3d9ff;
+    padding: 3px;
+}
+
+hr{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.labelAlign{
+    margin: 0;
+}
+
+.btn-primary{
+    background-color:#374bc7;
+    /*border-color:#3F51B5;*/
+    border-color:#374bc7;
+}
+
+.btn-warning{
+    background-color: #e0d660;
+    border-color: #e0d660;
+}
+
+.btn-danger{
+    background-color: #e03f3f;
+    border-color: #e03f3f;
+}
+
+.form-group{
+    margin: 0 0 8px 0;
+}
+
+.titleText{
+    font-size: 1.5rem;
 }
 
 .bottomSpacing{
@@ -19,9 +55,8 @@ body{
 }
 
 .leftSpacing{
-    margin: 0 0 0 45px;
+    margin: 0 0 0 20px;
 }
-
 .cstm-img-rounded{
     border-radius: 4px;
 }
@@ -36,7 +71,7 @@ body{
 
 .formDiv{
     width: 80%;
-    margin: 25px auto;
+    margin: 15px auto;
 }
 
 .labelAlign{
@@ -48,43 +83,50 @@ body{
     text-align: center;
 }
 
+.jumbotron{
+    background-color: #C5CAE9; 
+    padding: 15px; 
+    border-radius: 5px;
+}
+
 .lessJumboTron{
-    background-color: #eee;
+    background-color: #d3d9ff;
     text-align: center;
     border-radius: 15px;
     margin: 0 auto;
-    padding: 1px 0 10px 0;
+    padding: 5px 20px 5px 20px;
 }
 
 .lessContainer{
-    background-color: #ccc;
-    margin: 5px;
+    width: 90%;
+    background-color: #C5CAE9;
     border-radius: 15px;
-    padding: 5px 50px 0 30px;
+    padding: 10px;
+    margin: 5px auto;
 }
 
 #map{
     width: 100%;
-    height: 200px;
+    height: 120px;
     border-radius: 7px;
     margin: 0 0 20px 0;
 }
 
 .userAvatar{
-    width: 150px;
-    height:150px;
+    width: 220px;
+    height:220px;
     margin: 10px 0 20px 0;
     border-radius: 10px;
 }
 
 .userImage{
-    width: 400px;
-    height:400px;
+    width: 460px;
+    height:270px;
     border-radius: 10px;
 }
 
 .userParagraph{
-    margin: 35px 10px 10px 10px;
+    margin: 8px 0;
 }
 
 
@@ -97,8 +139,19 @@ body{
     .formDiv{
     width: 55%;
     }
-
 }  
+
+@media (min-width: 768px) {
+    #map{
+        height: 345px;
+    }
+}
+/*959 - 1240*/
+@media (min-width: 992px) {
+    #map{
+        height: 468px;
+    }
+}
 
 @media (min-width: 500px) {
     

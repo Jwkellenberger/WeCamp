@@ -122,7 +122,7 @@ router.post('/user/forgot', function(req, res, next){
                 service: 'Gmail',
                 auth: {
                     user: siteEmail,
-                    pass: 'Heeley2Duo'
+                    pass: process.env.GMAILPW
                 }
             });
             console.log('smtp Up!');

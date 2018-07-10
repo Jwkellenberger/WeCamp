@@ -3,14 +3,17 @@
 <div class='container'>
     <header class="lessJumboTron">
         <div class="row">
-            <h1 style="text-align: center">Forgot your password?</h1>
             <div class="formDiv">
+                <form>
+                    <h4 class="labelAlign ">New password:</h4>
+                    <hr>
+                </form>
                 <form action="/user/reset/<%=token%>" method="POST">
                     <div class="form-group">
                         <label for="password"  class="labelAlign">Password:</label>
                         <input class="form-control" type="password" name="password" placeholder="password" autofocus required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-4">
                         <label for="confirm"  class="labelAlign">Confirm password:</label>
                         <input class="form-control" type="password" name="confirm" placeholder="confirm password" required>
                     </div>

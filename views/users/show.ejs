@@ -5,17 +5,21 @@
 <% let imageVar = (user.avatar !== undefined)? user.avatar: "https://www.utsystem.edu/sites/default/files/offices/academic-affairs/Missing%20Photo.png"; %>
 <% let userName; if(user.firstName !== undefined){userName = user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1).toLowerCase() + " " + user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1).toLowerCase()}else{userName = user.username}%>
 
-<div class="row">
-    <div class="col-md-4">
-        <h1><%=userName%></h1>
+<div>
+<div class="card mb-4 p-2">
+    <div class="row">
+    <div class="col-md-3">
+        <h5><%=userName%></h5>
         <div >
-            <img class="userAvatar" src=<%=imageVar%> alt="userAvatar">
+            <img class="userAvatar img-thumbnail" src=<%=imageVar%> alt="userAvatar">
             <!--<div class="caption"><a href="mailto:<%=user.email %>"><%=user.email %></a></div>-->
-        
-            <p>Where can I get some?</p>
+        </div>
+    </div>
+    <div class="col-md-8">
+            <p class="mt-5">Where can I get some?</p>
             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some
                 form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a
-                passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the
+                passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All that!
             </p>
             <p>
                 Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true 
@@ -25,25 +29,32 @@
             </p>
         
         </div>
-
-        <!--<img src="https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-1/c41.25.315.315/s160x160/229272_10150180068239004_2904179_n.jpg?_nc_cat=0&oh=3cadecad2de29fb093ff1ee547c577c4&oe=5BE5A59F" alt="userAvatar">-->
-    </div>
-    <div class="col-md-4">
-        <div class="lessJumboTron">
-        <ul style="list-style-type: none;">
-            <h2>User Posts:</h2>
-        <% campgrounds.forEach(function(campground) {%>
-            <li><div>
-                <h4 class="userParagraph">
-                    <a href="/campgrounds/<%=campground.id%>"><%=campground.name%></a>
-                </h4>
-                <img class="userImage" src="<%=campground.image%>">
-            </div></li>
-        <% }) %>
-        </ul>
-        </div>
     </div>
 </div>
+    <div class="jumbotron">
+        <h5 class="m-0">User Posts:</h5>
+        <hr>
+        <div class="row">
+    
+            
+            
+            <% campgrounds.forEach(function(campground) {%>
+             <div class="col-md-4">
+                <!--<ul class="mb-2" style="list-style-type: none; padding: 0;">-->
+                <!--<li><div class="card" style="border: none; background-color: #d3d9ff; padding: 10px;">-->
+                    <h5 class="userParagraph">
+                        <a href="/campgrounds/<%=campground.id%>"><%=campground.name%></a>
+                    </h5>
+                    <img class="img-thumbnail" style="border-radius: 10px;" src="<%=campground.image%>">
+                
+                <!--</div></li>-->
+                <!--</ul>-->
+                
+            </div>
+            <% }) %>
+        </div>
+    </div>
 
+</div>
 
 <% include ../partials/footer %>

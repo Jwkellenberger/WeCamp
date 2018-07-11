@@ -153,6 +153,12 @@ hr{
     }
 }
 
+@media (min-width: 1200px) {
+    #map{
+        height: 564px;
+    }
+}
+
 @media (min-width: 500px) {
     
     .formDiv{

@@ -4,7 +4,7 @@
 
 <% let imageVar = (user.avatar !== undefined)? user.avatar: "https://www.utsystem.edu/sites/default/files/offices/academic-affairs/Missing%20Photo.png"; %>
 <% let userName; userName = (user.firstName !== undefined)? user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1).toLowerCase() + " " + user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1).toLowerCase(): ""; %>
-<% if(userName.length){ userName = user.username}%>
+<% if(userName.length < 2){ userName = user.username;}%>
 
 <div>
 <div class="card mb-4 p-2">

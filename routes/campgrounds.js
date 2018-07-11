@@ -21,13 +21,33 @@ var geocoder = NodeGeocoder(options);
 router.get('/', function(req, res){
     // contains username and id
     //Get all campgrounds from DB
-    Campground.find({},function(err, allCampgrounds){
-        if(err){
-            console.log(err);
-        } else{
-            res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds'});
-        }
-    });
+    if(req.query.search){
+        const searchTarget = new RegExp(escapeRegex(req.query.search), "gi");
+        
+        Campground.find({name: searchTarget},function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+                req.flash('error', 'Database could not populate campgrounds.');
+                return res.redirect('back');
+            } else {
+                if(allCampgrounds.length < 1){
+                    req.flash('error', 'That search resulted in 0 matches.');
+                    return res.redirect("/campgrounds");
+                }
+                return res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds'});
+            }
+        });
+    }else {
+        Campground.find({},function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+                req.flash('error', 'Database could not populate campgrounds.');
+                return res.redirect('back');
+            } else{
+                return res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds'});
+            }
+        });
+    }
     // res.render('campgrounds', {campgrounds: campgrounds});
 });
 
@@ -43,7 +63,7 @@ router.post('/', middleware.isLoggedIn, function(req, res){
     geocoder.geocode(req.body.location, function(err, data){
         if(err || !data.length){
             console.log(err);
-            req.flash('error', 'Invalid address');
+            req.flash('error', 'Invalid address.');
             return res.redirect('back');
         }
         else{
@@ -54,10 +74,10 @@ router.post('/', middleware.isLoggedIn, function(req, res){
             //Create a new campground and save to DB
             Campground.create(newCampground, function(err, newData){
                 if(err){
-                    req.flash('error', 'Data Creation Error: Data Bounced!');
+                    req.flash('error', 'Data Creation Error: Data creation was unsuccessful!');
                     return res.redirect('back');
                 } else {
-                    res.redirect("/campgrounds")
+                    return res.redirect("/campgrounds")
                 }
             });
         }
@@ -80,8 +100,10 @@ router.get("/:id", function(req,res){
     Campground.findById(req.params.id).populate('comments').exec(function(err, foundCampground){
         if(err){
             console.log(err);
+            req.flash('error', 'Data Pull Error: Database could not populate campgrounds.');
+            return res.redirect('/campgrounds');
         }else{
-            res.render("campgrounds/show", {campground: foundCampground});
+            return res.render("campgrounds/show", {campground: foundCampground});
         }
     });
     //render show template with that campground
@@ -93,9 +115,10 @@ router.get("/:id", function(req,res){
 router.get('/:id/edit', middleware.checkCampgroundOwnership, function(req, res){
     Campground.findById(req.params.id, function(err, foundCampground){
         if(err){
-            res.redirect('back');
+            req.flash('error', 'Data Pull Error: Database could not populate campgrounds.');
+            return res.redirect('/campgrounds');
         }else{
-             res.render('campgrounds/edit', {campground: foundCampground});
+             return res.render('campgrounds/edit', {campground: foundCampground});
         }
     });
 });
@@ -115,10 +138,10 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, campground){
         if(err){
             req.flash("error", err.message);
-            res.redirect("back");
+            return res.redirect("back");
         } else {
             req.flash("success","Successfully Updated!");
-            res.redirect("/campgrounds/" + campground._id);
+            return res.redirect("/campgrounds/" + campground._id);
         }
     });
   });
@@ -141,12 +164,20 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
 router.delete('/:id', middleware.checkCampgroundOwnership, function(req, res){
     Campground.findByIdAndRemove(req.params.id, function(err){
         if(err){
-            res.redirect('/campgrounds');
+            req.flash("success",'Data Pull Error: Database could not find/remove the given campground.');
+            return res.redirect('/campgrounds');
         } else{
-            res.redirect('/campgrounds');
+            return res.redirect('/campgrounds');
         }
     });
 });
+
+
+function escapeRegex(text) {
+    text = text.slice(0,19);
+    text = text.replace(/[[\]{}!@#$%&*()!y]/g, '');
+    return text.replace(/[-[\]{}*+?.,\\^$!#\s]/g, "\\$&");
+};
 
 
 module.exports = router;

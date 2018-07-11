@@ -13,6 +13,14 @@ body{
     padding: 3px;
 }
 
+
+.toggleForm{
+    border-left: 5px solid rgb(148, 158, 218); 
+    border-bottom: 5px solid rgb(148, 158, 218); 
+    border-radius:5px;
+}
+
+
 a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;

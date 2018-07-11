@@ -1,10 +1,10 @@
-let Campground  = require('./models/campground'),
-    User        = require('./models/user'),
+let Campground  = require('../models/campground'),
+    User        = require('../models/user'),
     nodemailer  = require('nodemailer'),
     express     = require('express'),
-    router      = express.router(),
-    crypto        = require("crypto"),//User
-    aSync         = require("async");//User
+    router      = express.Router(),
+    crypto      = require("crypto"),
+    aSync       = require("async");
 
 
 router.get('/user/forgot', function(req, res){
@@ -187,4 +187,4 @@ router.get('/users/:id', function(req,res){
 });
 
 
-module.export = router;
+module.exports = router;

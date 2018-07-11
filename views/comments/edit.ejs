@@ -3,8 +3,11 @@
 <div class='container'>
     <header class="lessJumboTron">
         <div class="row">
-            <h1 style="text-align: center">Edit Comment:</h1>
             <div class="formDiv">
+                <form>
+                    <h3 class="labelAlign">Edit Comment:</h3>
+                    <hr>
+                </form>
                 <form action="/campgrounds/<%= campground_id%>/comments/<%= comment._id%>?_method=PUT" method="POST">
                     <div class="form-group">
                         <label for="comment[text]"  class="labelAlign">Comment text:</label>

@@ -27,9 +27,9 @@
                 <!-- if there is not a currently logged in user, don't evaluate if statement -->
                 <% if(currentUser && (campground.author.id.equals(currentUser._id) || currentUser.isAdmin)){%>
                     <div class="mt-2">
-                        <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit!</a>
+                        <a class="btn btn-sm btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit!</a>
                         <form class="inline-elem " action="/campgrounds/<%= campground._id%>?_method=DELETE" method="POST">
-                            <button class="btn btn-xs btn-danger">Delete</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
                         </form>
                     </div>
                     <div class="clearfix"></div>
@@ -42,8 +42,8 @@
     <div class="card">
         
         <div class="float-right m-2">
-            <span class="titleText">Comments:</span>
-            <a class="btn btn-sm btn-primary float-right" href="/campgrounds/<%=campground._id%>/comments/new">Add Comment</a>
+            <span class="titleText ml-2">Comments:</span>
+            <a class="btn btn-sm btn-primary float-right mr-2" href="/campgrounds/<%=campground._id%>/comments/new">Add Comment</a>
         </div>
         <div class="row">
         <% campground.comments.forEach(function(comment){ %>

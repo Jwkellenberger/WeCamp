@@ -2,8 +2,8 @@
 
 <div>
     <header class="jumbotron jumbotron-fluid" >
-        <div class="row mb-5">
-            <div class="col-md-2">
+        <div class="row mb-3">
+            <div class="col-md-2 pr-2">
                 <!--<div class="list-group mb-4">-->
                 <!--    <li class='list-group-item active'>Site Moderator</li>-->
                 <!--    <li class='list-group-item'>Info</li>-->
@@ -12,8 +12,8 @@
                 <div id="map"></div>
             
             </div>
-            <div class="col-md-10">
-                <div class="">
+            <div class="col-md-10 pl-2">
+                <div>
                     <img class="img-fluid cstm-img-rounded" src="<%= campground.image%>">
                 </div>
             </div>
@@ -23,13 +23,16 @@
             <!--<h4 class="pull-right">$9.99/night</h4>-->
             <span class="float-right"><em>posted by: <a href="/users/<%= campground.author.id%>"><%= campground.author.username%></a></em></span>
             <h4><a><%= campground.name%></a></h4>
-            <p><%= campground.description%></p>
+            <p class="mb-0"><%= campground.description%></p>
                 <!-- if there is not a currently logged in user, don't evaluate if statement -->
                 <% if(currentUser && (campground.author.id.equals(currentUser._id) || currentUser.isAdmin)){%>
-                    <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit!</a>
-                    <form class="inline-elem " action="/campgrounds/<%= campground._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-xs btn-danger">Delete</button>
-                    </form>
+                    <div class="mt-2">
+                        <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit!</a>
+                        <form class="inline-elem " action="/campgrounds/<%= campground._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
                 <% } %>
         </div>
         <br>
@@ -55,7 +58,7 @@
                 
                 <% if(currentUser && (comment.author.id.equals(currentUser._id) || currentUser.isAdmin)){%>
                     <div class="float-right">
-                        <a class="btn btn-sm btn-warning rightSpacing" 
+                        <a class="btn btn-sm btn-warning" 
                             href="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/edit">Edit</a>
                         <form class="inline-elem" action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>?_method=DELETE" method="POST">
                             <input class="btn btn-sm btn-danger" type='submit' value='Delete'>

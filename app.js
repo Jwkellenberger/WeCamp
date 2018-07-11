@@ -20,7 +20,7 @@ var Campground     = require('./models/campground'),
 var campgroundRoutes = require('./routes/campgrounds'),
     commentRoutes    = require('./routes/comments'),
     indexRoutes      = require('./routes/index'),
-    userRouter       = require('./routes/user');
+    userRoutes       = require('./routes/user');
 
 // ////////////////////////////////////////////////////////////////////////////
 // RESTful route concepts
@@ -73,8 +73,8 @@ app.use(function(req, res, next){
 });
 
 //Require Routes: files export router with all gets/post/put's
-app.use(indexRoutes);
-app.use(userRouter);
+app.use("", indexRoutes);
+app.use("", userRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 

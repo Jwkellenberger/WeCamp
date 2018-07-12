@@ -3,6 +3,28 @@ body{
     background-color:#212121;
 }
 
+.disabled.page-item .page-link{
+    background-color:#C5CAE9;
+}
+
+.page-link{
+    background-color:#d3d9ff;
+    color:#374bc7;
+}
+
+.page-item.active .page-link {
+    background-color:#374bc7;
+    color:#d3d9ff;
+    border-color: #d3d9ff;
+}
+
+.page-item.active .page-link:hover {
+    color:#eee;
+    font-size: 1.5rem;
+    padding: 0.2rem 0.63rem 0.2rem 0.61rem;
+    transition: 0.15s;
+}
+
 #navBar{
     background-color:#303F9F;
     color: #eee;

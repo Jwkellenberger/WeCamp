@@ -16,40 +16,70 @@ var options = {
 var geocoder = NodeGeocoder(options);    
     
     
-
 //INDEX Route: show all campgrounds
 router.get('/', function(req, res){
+    let perPage = 12;
+    let pageQuery = parseInt(req.query.pageCt);
+    let pageNumber = pageQuery ? pageQuery : 1;
+    
     // contains username and id
     //Get all campgrounds from DB
     if(req.query.search){
         const searchTarget = new RegExp(escapeRegex(req.query.search), "gi");
         
-        Campground.find({name: searchTarget},function(err, allCampgrounds){
+        Campground.find({name: searchTarget}).skip((perPage*pageNumber) - perPage).limit(perPage).exec(function( err, allCampgrounds){
             if(err){
                 console.log(err);
-                req.flash('error', 'Database could not populate campgrounds.');
+                req.flash('error', 'Database could not manage the data query for this page.');
                 return res.redirect('back');
-            } else {
-                if(allCampgrounds.length < 1){
-                    req.flash('error', 'That search resulted in 0 matches.');
-                    return res.redirect("/campgrounds");
-                }
-                return res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds'});
             }
+            Campground.count({name: searchTarget}).exec(function (err, count){
+                if(err){
+                    console.log(err);
+                    req.flash('error', 'Database could not populate campgrounds.');
+                    return res.redirect('back');
+                } else {
+                    if(allCampgrounds.length < 1){
+                        req.flash('error', 'That search resulted in 0 matches.');
+                        return res.redirect("/campgrounds");
+                    }
+                    return res.render("campgrounds/index", {
+                        pages: Math.ceil(count/perPage),
+                        campgrounds: allCampgrounds, 
+                        search: req.query.search,
+                        page: 'campgrounds',
+                        current: 1
+                    });
+                }
+            });
         });
     }else {
-        Campground.find({},function(err, allCampgrounds){
+        Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allCampgrounds){
             if(err){
                 console.log(err);
-                req.flash('error', 'Database could not populate campgrounds.');
+                req.flash('error', 'Database could not manage the data query for this page.');
                 return res.redirect('back');
-            } else{
-                return res.render("campgrounds/index", {campgrounds: allCampgrounds, page: 'campgrounds'});
             }
+            Campground.count().exec(function (err, count){
+                if(err){
+                    console.log(err);
+                    req.flash('error', 'Database could not populate campgrounds.');
+                    return res.redirect('back');
+                } else{
+                    return res.render("campgrounds/index", {
+                        pages: Math.ceil(count/perPage),
+                        campgrounds: allCampgrounds,
+                        current: pageNumber,
+                        page: 'campgrounds',
+                        search: false
+                    });
+                }
+            });
         });
     }
     // res.render('campgrounds', {campgrounds: campgrounds});
 });
+
 
 //CREATE Route: add new campground to DB
 router.post('/', middleware.isLoggedIn, function(req, res){
@@ -84,10 +114,12 @@ router.post('/', middleware.isLoggedIn, function(req, res){
     });
 });
 
+
 // NEW Route: show form to create new campground
 router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render('campgrounds/new');
 });
+
 
 // SHOW Route: shows more info about one campground
 router.get("/:id", function(req,res){
@@ -123,6 +155,7 @@ router.get('/:id/edit', middleware.checkCampgroundOwnership, function(req, res){
     });
 });
 
+
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
   geocoder.geocode(req.body.location, function (err, data) {
@@ -147,6 +180,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
   });
 });
 
+
 // //UPDATE campground route
 // router.put('/:id', middleware.checkCampgroundOwnership, function(req, res){
 //     //find and update the correct campground
@@ -159,6 +193,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
 //     });
 //     //redirect somewhere(show page)
 // });
+
 
 //DESTROY Campground route
 router.delete('/:id', middleware.checkCampgroundOwnership, function(req, res){

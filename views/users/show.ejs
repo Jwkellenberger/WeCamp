@@ -40,13 +40,15 @@
             
             
             <% campgrounds.forEach(function(campground) {%>
-             <div class="col-md-4">
+             <div class="col-md-4 anim">
                 <!--<ul class="mb-2" style="list-style-type: none; padding: 0;">-->
                 <!--<li><div class="card" style="border: none; background-color: #d3d9ff; padding: 10px;">-->
-                    <h5 class="userParagraph">
-                        <a href="/campgrounds/<%=campground.id%>"><%=campground.name%></a>
-                    </h5>
-                    <img class="img-thumbnail" style="border-radius: 10px;" src="<%=campground.image%>">
+                    <a href="/campgrounds/<%=campground.id%>">
+                        <h5 class="userParagraph">
+                            <%=campground.name%>
+                        </h5>
+                        <img class="img-thumbnail anim" src="<%=campground.image%>">
+                    </a>
                 
                 <!--</div></li>-->
                 <!--</ul>-->

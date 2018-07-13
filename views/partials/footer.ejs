@@ -14,4 +14,41 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" 
     integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" 
     crossorigin="anonymous"></script>
+    
+<script>
+    
+$(function(){
+    $(".card.anim").on({
+        mouseenter: swapShadow,
+        mouseleave: swapShadow
+    });
+    
+    $(".lessContainer.anim").on({
+        mouseenter: swapBkgrnd,
+        mouseleave: swapBkgrnd
+    });
+    
+    $('.img-thumbnail.anim').on({
+        mouseenter: swapBkgrnd,
+        mouseleave: swapBkgrnd
+    });
+    
+    $('.col-md-4.anim').on({
+        mouseenter: swapBkgrnd,
+        mouseleave: swapBkgrnd
+    });
+});
+
+function swapShadow(event){
+    $(this).toggleClass('shadow').toggleClass('shadow-lg').toggleClass('colorShift');
+    event.stopPropagation;
+}
+
+function swapBkgrnd(event){
+    $(this).toggleClass('mildColorShift');
+    event.stopPropagation;
+}
+    
+</script>
+
 </html>

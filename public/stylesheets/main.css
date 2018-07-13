@@ -35,6 +35,42 @@ body{
     padding: 3px;
 }
 
+.card.anim{
+    transition: 0.4s;
+}
+
+.colorShift{
+    background-color:#e3e9ff;
+}
+
+.lessContainer.anim{
+    transition: 0.3s;
+}
+
+.lessContainer.mildColorShift{
+    background-color:#B5BAEA;
+}
+
+.img-thumbnail.anim{
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.img-thumbnail.anim.mildColorShift{
+    background-color:#B5BAEA;
+    /*background-color: #333;*/
+    border-color: #A5AAEA;
+}
+
+.col-md-4.anim{
+    padding-bottom: 10px;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.col-md-4.anim.mildColorShift{
+    background-color:#d3d9ff;
+}
 
 .toggleForm{
     border-left: 5px solid rgb(148, 158, 218); 

@@ -83,9 +83,9 @@ router.get('/', function(req, res){
 
 //CREATE Route: add new campground to DB
 router.post('/', middleware.isLoggedIn, function(req, res){
-    var name = req.body.name;
-    var image = req.body.image;
-    var desc = req.body.description;
+    var name = req.body.campground.name;
+    var image = req.body.campground.image;
+    var desc = req.body.campground.description;
     var author = {
         id: req.user._id,
         username: req.user.username

@@ -8,7 +8,42 @@
             <p>View glorious campgrounds representing the great outdoors!</p>
             
             <p>
-                <a class='btn btn-primary btn-lg ' href="/campgrounds/new">Add Campground</a>
+                <% if(currentUser){%>
+                    <div class="mt-2">
+                        <a class="btn btn-primary  btn-lg" data-toggle="collapse" href="#collapseCreateCampgroundForm">Add Campground</a>
+                    </div>
+
+                    <div id="collapseCreateCampgroundForm" class="collapse">
+                      <hr class="mt-2 mb-4">
+                      <div class="toggleForm ml-2 pl-2 pb-2">
+                        <form id="createCampground" action="/campgrounds%>" method="POST">
+                          <div class="form-group">
+                              <label class="labelAlign" for="campground[name]">Campground Name:</label>
+                              <input class="form-control form-control-sm" type="text" name="campground[name]" value="Local Campground">
+                          </div>
+                          <div class="form-group">
+                              <label for="campground[image]"  class="labelAlign">Image Url:</label>
+                              <input class="form-control form-control-sm" type="text" name="campground[image]" value="https://niceimage.jpeg/">
+                          </div>
+                          <div class="form-group mb-4">
+                              <label for="campground[location]"  class="labelAlign">Location:</label>
+                              <input class="form-control form-control-sm" type="text" name="location" id="campground[location]" value="Nashville TN">
+                          <div class="form-group">
+                              <label for="campground[description]"  class="labelAlign">Description:</label>
+                              <textarea class="form-control" name="campground[description]" form="createCampground" rows="5" cols="70">This place was great!</textarea>
+                          </div>
+                          <div class="form-group">
+                              <input class="btn btn-primary btn-lg btn-default btn-block" type=submit>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    
+                    
+                <% } else { %>
+                    <a class='btn btn-primary btn-lg ' href="/login">Login to Add Campgrounds</a>
+                <% } %>
+                
             </p>
         </div>
         <hr class="mb-5">
